@@ -2,7 +2,9 @@ using Newtonsoft.Json;
 using SocketComms.Handlers;
 using SocketComms.Packets;
 using System;
+using System.Diagnostics;
 using System.Text;
+using System.Threading;
 
 namespace SocketComms
 {
@@ -17,9 +19,11 @@ namespace SocketComms
 
 		public void Run()
 		{
-			while (true)
+            Stopwatch st = new Stopwatch();
+            while (c.GetClient().Connected)
 			{
-				byte[] array = new byte[c.bufferSize];
+                st.Start();
+                byte[] array = new byte[c.bufferSize];
 				c.GetClient().GetStream().Read(array, 0, c.bufferSize);
 				string @string = Encoding.UTF8.GetString(array);
 				object packet = null;
@@ -50,7 +54,13 @@ namespace SocketComms
 						handlers[i].Handle(c, packet, array2);
 					}
 				}
-			}
+                st.Stop();
+                int wait = (int)((1000 / Sockets.PACKETRATE) - st.ElapsedMilliseconds);
+                if (wait > 0)
+                {
+                    Thread.Sleep(wait);
+                }
+            }
 		}
 	}
 }

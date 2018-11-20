@@ -1,4 +1,7 @@
+using System;
+using System.Diagnostics;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace SocketComms
 {
@@ -18,6 +21,7 @@ namespace SocketComms
 		{
 			while (true)
 			{
+                
 				TcpClient c = s.AcceptTcpClient();
 				Connection connection = new Connection(c);
 				for (int i = 0; i < o.curr; i++)
@@ -25,6 +29,7 @@ namespace SocketComms
 					connection.AddHandler(o.handlers[i], o.handlersQ[i]);
 				}
 				Sockets.connections.Add(connection);
+                
 			}
 		}
 	}

@@ -7,6 +7,9 @@ namespace SocketComms
 {
 	public class Sockets
 	{
+
+        public static long PACKETRATE = 20;
+
 		public static List<Connection> connections = new List<Connection>();
 
 		public static Connection GetConnecion(string ip, int port)
