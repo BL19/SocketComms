@@ -1,0 +1,9 @@
+P:\Programming\SocketComms\bin\Debug\SocketComms.dll
+P:\Programming\SocketComms\bin\Debug\SocketComms.pdb
+P:\Programming\SocketComms\bin\Debug\Newtonsoft.Json.dll
+P:\Programming\SocketComms\bin\Debug\System.dll
+P:\Programming\SocketComms\obj\Debug\SocketComms.csprojAssemblyReference.cache
+P:\Programming\SocketComms\obj\Debug\SocketComms.csproj.CoreCompileInputs.cache
+P:\Programming\SocketComms\obj\Debug\SocketComms.csproj.CopyComplete
+P:\Programming\SocketComms\obj\Debug\SocketComms.dll
+P:\Programming\SocketComms\obj\Debug\SocketComms.pdb
